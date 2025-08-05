@@ -1,0 +1,49 @@
+<div class="expense-list-container">
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let expense of expenses; trackBy: trackByExpenseId">
+        <td>{{ expense.description }}</td>
+        <td>${{ expense.amount | number:'1.2-2' }}</td>
+        <td>
+          <span class="badge" 
+                [ngClass]="{
+                  'bg-success': expense.category === 'Food',
+                  'bg-primary': expense.category === 'Transportation',
+                  'bg-warning': expense.category === 'Entertainment',
+                  'bg-secondary': expense.category === 'Other'
+                }">
+            {{ expense.category }}
+          </span>
+        </td>
+        <td>
+          <button 
+            class="btn btn-danger btn-sm" 
+            (click)="deleteExpense(expense.id)"
+            title="Delete expense">
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="expenses.length === 0">
+        <td colspan="4" class="text-center text-muted">
+          No expenses found. Add some expenses to get started!
+        </td>
+      </tr>
+    </tbody>
+    <tfoot *ngIf="expenses.length > 0" class="table-light">
+      <tr>
+        <td><strong>Total</strong></td>
+        <td><strong>${{ getTotalAmount() | number:'1.2-2' }}</strong></td>
+        <td colspan="2"></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

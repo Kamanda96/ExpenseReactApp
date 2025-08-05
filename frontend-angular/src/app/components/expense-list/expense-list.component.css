@@ -1,0 +1,35 @@
+.expense-list-container {
+  margin: 20px 0;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.badge {
+  font-size: 0.8em;
+  padding: 0.4em 0.8em;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.text-muted {
+  font-style: italic;
+}
+
+tfoot td {
+  font-size: 1.1em;
+}
